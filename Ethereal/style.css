@@ -44,13 +44,14 @@ a {
 }
 .bg-overlay {
 	padding: 280px 0 220px;
-	background-color: RGBA(15, 5, 20, 0.84);
+	background-color: RGBA(0, 0, 0, 0.48)
 }
 .banner-text h2 {
 	font-size: 50px;
+	color: skyblue;
 }
 .banner-text h2 span {
-	color: #EB233C;
+	color: #fd8f00;
 }
 .banner-text p {
 	font-size: 15px;
