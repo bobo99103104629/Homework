@@ -1,0 +1,41 @@
+create database dinbendon  default character set utf8;
+
+use dinbendon;
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+CREATE TABLE IF NOT EXISTS `bendon` (
+  `bID` tinyint(2) unsigned zerofill NOT NULL auto_increment,
+  `bName` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `bPhone` varchar(50) collate utf8_unicode_ci default NULL,
+  `bAddr` varchar(255) collate utf8_unicode_ci default NULL,
+  PRIMARY KEY  (`bID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+INSERT INTO `bendon` (`bID`, `bName`,  `bPhone`, `bAddr`) VALUES
+(01, '大豐爌肉飯', '0922988876', '台中市西屯區西屯路12號'),
+(02, '咕姑園－中美店', '0922987777', '台中市西屯區西屯路30號');
+
+CREATE TABLE `bdetails` (
+  `bID` tinyint(2) default NULL,
+  `bName` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `Productname` varchar(20) collate utf8_unicode_ci default NULL,
+  `UnitPrice` int(11) NOT NULL default '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `bdetails` (`bID`, `bName`,  `Productname`, `UnitPrice`)VALUES 
+('01','大豐爌肉飯','好吃豬腳飯','85'),
+('01','大豐爌肉飯','滷香排骨飯','80'),
+('02','咕姑園－中美店','火雞肉便當','80'),
+('02','咕姑園－中美店','火雞咖哩飯','85');
+
+
+CREATE TABLE `bOrders` (
+  `OID` int(11) default NULL,
+  `OrderName` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `OrderPrice` int(11) default NULL,
+  `OrderDate` datetime default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `bOrders` (`OID` ,`OrderName` ,`OrderPrice`,`OrderDate`)VALUES 
+('01','bobo','80','2020-08-08 00:00:00'),
+('02','hunter','160','2020-08-08 00:00:00'),
+('03','sara','85','2020-08-08 00:00:00'),
+('04','jason','85','2020-08-08 00:00:00')
