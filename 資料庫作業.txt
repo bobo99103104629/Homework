@@ -1,0 +1,62 @@
+create database dinbendon  default character set utf8;
+
+use dinbendon;
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+CREATE TABLE IF NOT EXISTS `bendons` (
+  `bID` tinyint(2) unsigned zerofill NOT NULL auto_increment,
+  `bName` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `bPhone` varchar(50) collate utf8_unicode_ci default NULL,
+  `bAddr` varchar(255) collate utf8_unicode_ci default NULL,
+  PRIMARY KEY  (`bID`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+INSERT INTO `bendons` (`bID`, `bName`,  `bPhone`, `bAddr`) VALUES
+(01, '大豐爌肉飯', '0922988876', '台中市西屯區西屯路12號'),
+(02, '咕姑園－中美店', '0922987777', '台中市西屯區西屯路30號'),
+(03, '炒飯超人', '0922987788', '台中市西屯區西屯路6號');
+
+CREATE TABLE `bendetails` (
+  `benID` CHAR(11) default NULL,
+  `bName` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `Productname` varchar(20) collate utf8_unicode_ci default NULL,
+  `UnitPrice` int(11) NOT NULL default '0',
+  `Quantity` int(11) NOT NULL default '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+INSERT INTO `bendetails` (`benID`, `bName`,  `Productname`, `UnitPrice`,`Quantity`)VALUES 
+('01_1','大豐爌肉飯','好吃豬腳飯','85','0'),
+('01_2','大豐爌肉飯','滷香排骨飯','80','0'),
+('02_1','咕姑園－中美店','火雞肉便當','80','0'),
+('02_2','咕姑園－中美店','火雞咖哩飯','85','0'),
+('03_1','炒飯超人','黃金蛋炒飯','60','0'),
+('03_2','炒飯超人','披薩炒飯','80','0');
+
+
+CREATE TABLE `benOrders` (
+  `OID` CHAR(11) default NULL,
+  `benID` CHAR(11) default NULL,
+  `OrderName` varchar(20) collate utf8_unicode_ci NOT NULL,
+  `OrderPrice` int(11) default NULL,
+  `Quantity` int(11) NOT NULL default '0',
+  `OrderDate` datetime default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+INSERT INTO `benOrders` (`OID` ,`benID`,`OrderName` ,`OrderPrice`,`Quantity`,`OrderDate`)VALUES 
+('01','02_2','bobo','80','1','2020-08-08 11:11:34'),
+('02','01_1','hunter','170','2','2020-08-08 11:15:22'),
+('03','03_1','sara','85','1','2020-08-08 11:25:17'),
+('04','01_2','jason','85','1','2020-08-08 11:30:56');
+
+CREATE TABLE `User` (
+  `userID` CHAR(20) default NULL,
+  `password` CHAR(20) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+insert into `User`(`userID`,`password`)VALUES
+('bobo_zhang','a123456'),
+('hunter_lin','b123456'),
+('sara_li','c123456'),
+('jason_wu','d123456');
+
+SELECT * FROM `bendetails`;
+SELECT * FROM `bendons`;
+SELECT * FROM `benorders`;
+SELECT * FROM `user`;
