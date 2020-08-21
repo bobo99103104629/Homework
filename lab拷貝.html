@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method= "post" action= "echo.php">
+        <!-- test:
+        <input type= "text" name="test" pattern="(\w)?\d{8}" required placeholder="請填入身分證號碼"><br>
+        <input type= "submit" name="btnOK" id= "btnOK" value= "ok"> -->
+        test:
+        <input type= "text" name="test" pattern="\w+([.-]\w+)*@\w+([.-]\w+)+" required placeholder="請填入電子信箱"><br>
+        <input type= "submit" name="btnOK" id= "btnOK" value= "ok">
+    </form>
+    (02)12345678
+    \(0\d\)\d{7,8}|(0\d-)?\d{7,8}   \w+([.-]\w+)*@\w+([.-]\w+)+ xx.xx-xx.xx
+</body>
+</html>
